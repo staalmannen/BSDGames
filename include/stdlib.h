@@ -32,7 +32,10 @@
 #endif
 
 #include <bsd-games.h>
-#include_next <stdlib.h>
+#include "/sys/include/ape/stdlib.h"
+
+#define random rand
+#define srandom srand
 
 #ifndef HAVE_getloadavg
 extern int getloadavg(double loadavg[], int nelem);

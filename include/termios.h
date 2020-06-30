@@ -31,6 +31,6 @@
 #pragma GCC system_header
 #endif
 
-#include_next <termios.h>
+#include "/sys/include/ape/termios.h"
 
 #include <sys/ttydefaults.h>

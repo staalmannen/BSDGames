@@ -1,3 +1,4 @@
+#!/bin/sh
 #	$NetBSD: rot13.sh,v 1.6 2000/04/24 15:42:40 simonb Exp $
 #
 # Copyright (c) 1992, 1993
@@ -34,4 +35,4 @@
 #	@(#)rot13.sh	8.1 (Berkeley) 5/31/93
 #
 
-exec @gamesdir@/caesar 13 "$@"
+exec /$objtype/bin/games/caesar 13 "$@"

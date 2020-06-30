@@ -436,6 +436,7 @@ specials()
 	default:
 		bug(29);
 	}
+	return 0;
 }
 
 

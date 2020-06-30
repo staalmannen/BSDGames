@@ -31,7 +31,7 @@
 #pragma GCC system_header
 #endif
 
-#include_next <sys/poll.h>
+//#include_next <sys/poll.h>
 
 #ifndef INFTIM
 #define INFTIM	-1

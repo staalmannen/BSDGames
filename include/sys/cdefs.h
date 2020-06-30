@@ -31,12 +31,14 @@
 #pragma GCC system_header
 #endif
 
-#include_next <sys/cdefs.h>
+//#include_next <sys/cdefs.h>
+
+#define __attribute__(x) /*nothing*/ 
 
 #ifndef __RCSID
-#define __RCSID(arg)	static const char rcsid[] __attribute__((__unused__)) = arg
+#define __RCSID(arg)	static const char rcsid[] = arg
 #endif
 
 #ifndef __COPYRIGHT
-#define __COPYRIGHT(arg)	static const char copyright[] __attribute__((__unused__)) = arg
+#define __COPYRIGHT(arg)	static const char copyright[] = arg
 #endif

@@ -145,6 +145,7 @@ main(argc, argv)
 			err(1, "reading from stdin");
 	}
 	exit(0);
+	return 0;
 }
 
 void

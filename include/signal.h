@@ -37,7 +37,7 @@
 #define __USE_BSD_SIGNAL	1 /* Get BSD signal semantics with libc5 */
 #endif
 
-#include_next <signal.h>
+#include "/sys/include/ape/signal.h"
 
 #ifndef HAVE_sig_t
 #ifndef LINUX_BSD_GAMES_DEFINED_SIG_T

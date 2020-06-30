@@ -32,7 +32,7 @@
 #endif
 
 #include <bsd-games.h>
-#include_next <stdio.h>
+#include "/sys/include/ape/stdio.h"
 
 #ifndef HAVE_fgetln
 extern char *fgetln(FILE *stream, size_t *len);

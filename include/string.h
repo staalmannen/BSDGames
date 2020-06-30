@@ -32,7 +32,7 @@
 #endif
 
 #include <bsd-games.h>
-#include_next <string.h>
+#include "/sys/include/ape/string.h"
 
 #ifndef HAVE_strlcpy
 extern size_t strlcpy(char *dst, const char *src, size_t siz);

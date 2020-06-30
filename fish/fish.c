@@ -51,8 +51,8 @@ __RCSID("$NetBSD: fish.c,v 1.16 2005/02/15 12:56:20 jsm Exp $");
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "../include/stdlib.h"
+#include "../include/unistd.h"
 #include <string.h>
 #include <time.h>
 #include <err.h>

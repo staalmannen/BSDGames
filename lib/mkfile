@@ -1,0 +1,16 @@
+</$objtype/mkfile
+LIB=../libgames.a$O
+OFILES= fgetln.$O getloadavg.$O	getprogname.$O strlcpy.$O
+
+HFILES=
+
+</sys/src/cmd/mklib
+
+CC=pcc
+LD=pcc
+CFLAGS=-c -D_POSIX_SOURCE 
+
+
+nuke:V:
+	mk clean
+	rm -f $LIB

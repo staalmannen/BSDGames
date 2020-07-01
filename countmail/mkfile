@@ -1,0 +1,13 @@
+</$objtype/mkfile
+
+install:V:
+	cp countmail /rc/bin/ape/
+	cp countmail.6man /sys/man/6/countmail
+
+clean:V:
+	echo "clean!"
+
+nuke:V:
+	rm -f /rc/bin/ape/countmail
+	rm -f /sys/man/6/countmail
+

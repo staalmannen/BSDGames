@@ -52,6 +52,8 @@ __RCSID("$NetBSD: number.c,v 1.10 2004/11/05 21:30:32 dsl Exp $");
 #include <string.h>
 #include <unistd.h>
 
+#define	isblank(c)	(_ctype[(unsigned char)(c)]&_ISblank)
+
 #define	MAXNUM		65		/* Biggest number we handle. */
 
 static const char	*const name1[] = {

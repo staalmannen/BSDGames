@@ -155,6 +155,7 @@ main(argc, argv)
 	}
 	bye();
 	exit(0);
+	return 0;
 }
 
 /*
@@ -300,8 +301,7 @@ game()
  *	Do up one hand of the game
  */
 int
-playhand(mycrib)
-	BOOLEAN mycrib;
+playhand(BOOLEAN mycrib)
 {
 	int deckpos;
 
@@ -332,8 +332,7 @@ playhand(mycrib)
  * deal cards to both players from deck
  */
 int
-deal(mycrib)
-	BOOLEAN mycrib;
+deal(int mycrib)
 {
 	int i, j;
 
@@ -355,8 +354,7 @@ deal(mycrib)
  * Note: we call cdiscard() after prining first message so player doesn't wait
  */
 void
-discard(mycrib)
-	BOOLEAN mycrib;
+discard(BOOLEAN mycrib)
 {
 	const char *prompt;
 	CARD crd;
@@ -385,9 +383,7 @@ discard(mycrib)
  *	player what card to turn.  We do a random one, anyway.
  */
 int
-cut(mycrib, pos)
-	BOOLEAN mycrib;
-	int  pos;
+cut(BOOLEAN mycrib, int pos)
 {
 	int i;
 	BOOLEAN win;
@@ -429,8 +425,7 @@ cut(mycrib, pos)
  *	Print out the turnover card with crib indicator
  */
 void
-prcrib(mycrib, blank)
-	BOOLEAN mycrib, blank;
+prcrib(BOOLEAN mycrib, BOOLEAN blank)
 {
 	int y, cardx;
 
@@ -460,8 +455,7 @@ static CARD Table[14];
 static int Tcnt;
 
 int
-peg(mycrib)
-	BOOLEAN mycrib;
+peg(BOOLEAN mycrib)
 {
 	static CARD ch[CINHAND], ph[CINHAND];
 	int i, j, k;
@@ -620,8 +614,7 @@ peg(mycrib)
  *	Print out the table with the current score
  */
 void
-prtable(score)
-	int score;
+prtable(int score)
 {
 	prhand(Table, Tcnt, Tablewin, FALSE);
 	mvwprintw(Tablewin, (Tcnt + 2) * 2, Tcnt + 1, "%2d", score);
@@ -633,8 +626,7 @@ prtable(score)
  *	Handle the scoring of the hands
  */
 int
-score(mycrib)
-	BOOLEAN mycrib;
+score(BOOLEAN mycrib)
 {
 	sorthand(crib, CINHAND);
 	if (mycrib) {

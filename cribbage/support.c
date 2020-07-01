@@ -202,10 +202,7 @@ chkscr(scr, inc)
  *	score up on the board.
  */
 void
-prpeg(score, peg, myturn)
-	int score;
-	int peg;
-	BOOLEAN myturn;
+prpeg(int score, int peg, BOOLEAN myturn)
 {
 	int y, x;
 
@@ -241,8 +238,7 @@ prpeg(score, peg, myturn)
  * the crib and puts the best two cards at the end
  */
 void
-cdiscard(mycrib)
-	BOOLEAN mycrib;
+cdiscard(BOOLEAN mycrib)
 {
 	CARD    d[CARDS], h[FULLHAND], cb[2];
 	int i, j, k;

@@ -260,8 +260,7 @@ name(p)
 }
 
 int
-number(l)
-	char l;
+number(char l)
 {
 	if (l < 'a' && l > 'z' && l < 'A' && l > 'Z')
 		return (-1);

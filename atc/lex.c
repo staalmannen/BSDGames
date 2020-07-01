@@ -10,7 +10,7 @@ typedef unsigned char Uchar;
 # define YYLMAX 200
 # define unput(c) {yytchar= (c);if(yytchar=='\n')yylineno--;*yysptr++=yytchar;}
 # define yymore() (yymorfg=1)
-# define ECHO fprintf(yyout, "%s",yytext)
+//# define ECHO fprintf(yyout, "%s",yytext)
 # define REJECT { nstr = yyreject(); goto yyfussy;}
 int yyleng; extern char yytext[];
 int yymorfg;
@@ -80,7 +80,7 @@ __RCSID("$NetBSD: lex.l,v 1.7 2003/08/07 09:36:54 agc Exp $");
 #endif /* not lint */
 
 #include "include.h"
-#undef ECHO		/* XXX: work around lex(1) vs termios lameness */
+//#undef ECHO		/* XXX: work around lex(1) vs termios lameness */
 #include "grammar.h"
 
 extern int	line;

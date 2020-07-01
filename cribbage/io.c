@@ -78,9 +78,7 @@ const char   *const suitchar[SUITS] = {"S", "H", "D", "C"};
  *	Call msgcrd in one of two forms
  */
 int
-msgcard(c, brief)
-	CARD c;
-	BOOLEAN brief;
+msgcard(CARD c, BOOLEAN brief)
 {
 	if (brief)
 		return (msgcrd(c, TRUE, NULL, TRUE));
@@ -93,10 +91,7 @@ msgcard(c, brief)
  *	Print the value of a card in ascii
  */
 int
-msgcrd(c, brfrank, mid, brfsuit)
-	CARD c;
-	BOOLEAN brfrank, brfsuit;
-	const char *mid;
+msgcrd(CARD c, BOOLEAN brfrank, const char *mid, BOOLEAN brfsuit)
 {
 	if (c.rank == EMPTY || c.suit == EMPTY)
 		return (FALSE);
@@ -118,11 +113,7 @@ msgcrd(c, brfrank, mid, brfsuit)
  *	Print out a card.
  */
 void
-printcard(win, cardno, c, blank)
-	WINDOW *win;
-	int     cardno;
-	CARD    c;
-	BOOLEAN blank;
+printcard(WINDOW *win, int cardno,CARD c,BOOLEAN blank)
 {
 	prcard(win, cardno * 2, cardno, c, blank);
 }
@@ -132,11 +123,7 @@ printcard(win, cardno, c, blank)
  *	Print out a card on the window at the specified location
  */
 void
-prcard(win, y, x, c, blank)
-	WINDOW *win;
-	int y, x;
-	CARD c;
-	BOOLEAN blank;
+prcard(WINDOW *win, int y, int x, CARD c, BOOLEAN blank)
 {
 	if (c.rank == EMPTY)
 		return;
@@ -159,11 +146,7 @@ prcard(win, y, x, c, blank)
  *	Print a hand of n cards
  */
 void
-prhand(h, n, win, blank)
-	const CARD h[];
-	int n;
-	WINDOW *win;
-	BOOLEAN blank;
+prhand(const CARD h[], int n, WINDOW *win, BOOLEAN blank)
 {
 	int i;
 
@@ -179,10 +162,7 @@ prhand(h, n, win, blank)
  *	input, returns the index of the card found...
  */
 int
-infrom(hand, n, prompt)
-	const CARD hand[];
-	int n;
-	const char *prompt;
+infrom(const CARD hand[], int n, const char *prompt)
 {
 	int i, j;
 	CARD crd;
@@ -235,8 +215,7 @@ infrom(hand, n, prompt)
  *	and then parses it.
  */
 int
-incard(crd)
-	CARD *crd;
+incard(CARD *crd)
 {
 	int i;
 	int rnk, sut;
@@ -337,9 +316,7 @@ getuchar()
  *	"hi" inclusive.
  */
 int
-number(lo, hi, prompt)
-	int lo, hi;
-	const char *prompt;
+number(int lo, int hi, const char *prompt)
 {
 	char *p;
 	int sum;
@@ -487,8 +464,7 @@ do_wait()
  *	Sit around until the guy types the right key
  */
 void
-wait_for(ch)
-	int ch;
+wait_for(int ch)
 {
 	char c;
 

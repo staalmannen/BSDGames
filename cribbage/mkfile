@@ -1,17 +1,17 @@
 </$objtype/mkfile
 
-TARG=atc
+TARG=cribbage
 
-OFILES= extern.$O input.$O list.$O log.$O main.$O\
-	tunable.$O update.$O grammar.$O lex.$O
+OFILES= cards.$O crib.$O extern.$O instr.$O\
+	io.$O score.$O support.$O
 
 
-HFILES=	grammar.h
+HFILES=	pathnames.h
 
 
 BIN=/$objtype/bin/games
 
-LIB=../libgames.a$O /$objtype/lib/ape/libcurses.a
+LIB=../libgames.a$O
 
 </sys/src/cmd/mkone
 
@@ -19,7 +19,7 @@ CC=pcc
 LD=pcc
 CFLAGS=-c -I. -I.. -I../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -DFILESDIR="/sys/games/lib/atc" -D_PATH_BSHELL="/bin/sh"
+	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
 
 
 %.$O: %.c
@@ -29,8 +29,6 @@ CFLAGS=-c -I. -I.. -I../include \
 install:V:
 	cp $O.out $BIN/$TARG
 	cp $TARG.6.in /sys/man/6/$TARG
-	mkdir -p /sys/games/lib/bsdgames/atc
-	cp games/* /sys/games/lib/bsdgames/atc/
 	
 
 clean:V:
@@ -39,4 +37,3 @@ clean:V:
 nuke:V:
 	rm -f $BIN/$TARG
 	rm -f /sys/man/6/$TARG
-	rm -rf /sys/games/lib/bsdgames/atc

@@ -1,7 +1,7 @@
-/*	$NetBSD: instr.c,v 1.11 2005/02/15 12:56:20 jsm Exp $	*/
+/*	$NetBSD: pathnames.h,v 1.4 2003/08/07 09:37:12 agc Exp $	*/
 
-/*-
- * Copyright (c) 1990, 1993
+/*
+ * Copyright (c) 1989, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,74 +27,12 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
+ *
+ *	@(#)pathnames.h	8.1 (Berkeley) 5/31/93
  */
 
-#include <sys/cdefs.h>
-#ifndef lint
-#if 0
-static char sccsid[] = "@(#)instr.c	8.1 (Berkeley) 5/31/93";
-#else
-__RCSID("$NetBSD: instr.c,v 1.11 2005/02/15 12:56:20 jsm Exp $");
-#endif
-#endif /* not lint */
-
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
-
-#include <curses.h>
-#include <err.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <errno.h>
-
-#include "deck.h"
-#include "cribbage.h"
-#include "pathnames.h"
-
-#define vfork fork
-
-void
-instructions()
-{
-	int pstat;
-	int fd;
-	pid_t pid;
-	const char *path;
-
-	switch (pid = vfork()) {
-	case -1:
-		err(1, "vfork");
-	case 0:
-		/* Follow the same behaviour for pagers as defined in POSIX.2
-		 * for mailx and man.  We only use a pager if stdout is
-		 * a terminal, and we pass the file on stdin to sh -c pager.
-		 */
-		if (!isatty(1))
-			path = "cat";
-		else {
-			if (!(path = getenv("PAGER")) || (*path == 0))
-				path = _PATH_MORE;
-		}
-		if ((fd = open(_PATH_INSTR, O_RDONLY)) == -1) {
-			warn("open %s", _PATH_INSTR);
-			_exit(1);
-		}
-		if (dup2(fd, 0) == -1) {
-			warn("dup2");
-			_exit(1);
-		}
-		execl("/bin/sh", "sh", "-c", path, (char *) NULL);
-		warn(NULL);
-		_exit(1);
-	default:
-		do {
-			pid = waitpid(pid, &pstat, 0);
-		} while (pid == -1 && errno == EINTR);
-		if (pid == -1 || WEXITSTATUS(pstat))
-			exit(1);
-	}
-}
+#define	_PATH_CONFIG	"/sys/games/lib/dm.conf"
+#define	_PATH_HIDE	"/sys/games/lib"
+#undef _PATH_LOG
+#define	_PATH_LOG	"/sys/games/lib/dm.log"
+#define	_PATH_NOGAMES	"/sys/games/lib"

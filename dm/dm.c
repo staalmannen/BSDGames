@@ -58,6 +58,12 @@ __RCSID("$NetBSD: dm.c,v 1.21 2004/11/05 21:30:32 dsl Exp $");
 #include <time.h>
 #include <unistd.h>
 
+#include <limits.h>
+#include <sys/limits.h>
+#include <fcntl.h>
+#define MAXPATHLEN PATH_MAX
+#define PRIO_PROCESS -1
+
 #include "utmpentry.h"
 #include "pathnames.h"
 

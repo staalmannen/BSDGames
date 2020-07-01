@@ -1,9 +1,11 @@
 </$objtype/mkfile
 
 #only include those that successfully build
+# will never work: dab (c++)
 
 DIRS=lib adventure arithmetic battlestar bcd\
-	caesar fish morse pig pom ppt rain random\
+	caesar countmail cribbage fish morse number\
+	pig pom ppt primes rain random\
 	wargames worm worms wtf wump
 
 

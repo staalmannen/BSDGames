@@ -75,6 +75,8 @@ __RCSID("$NetBSD: primes.c,v 1.12 2004/01/27 20:30:30 jsm Exp $");
 
 #include "primes.h"
 
+#define	isblank(c)	(_ctype[(unsigned char)(c)]&_ISblank)
+
 /*
  * Eratosthenes sieve table
  *

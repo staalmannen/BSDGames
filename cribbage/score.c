@@ -105,12 +105,7 @@ static int pairpoints, runpoints;		/* Globals from pairuns. */
  *	n must be <= 4
  */
 int
-scorehand(hand, starter, n, crb, do_explain)
-	const CARD hand[];
-	CARD starter;
-	int n;
-	BOOLEAN crb;		/* true if scoring crib */
-	BOOLEAN do_explain;	/* true if must explain this hand */
+scorehand(const CARD hand[], CARD starter, int n, BOOLEAN crb, BOOLEAN do_explain)
 {
 	int i, k;
 	int score;

@@ -32,6 +32,6 @@
  *	@(#)pathnames.h	8.1 (Berkeley) 5/31/93
  */
 
-#define	_PATH_INSTR	"/usr/share/games/bsdgames/cribbage.instr"
-#define	_PATH_LOG	"/var/games/bsdgames/criblog"
-#define	_PATH_MORE	"/usr/bin/pager"
+#define	_PATH_INSTR	"/sys/games/lib/bsdgames/cribbage.instr"
+#define	_PATH_LOG	"/sys/games/lib/bsdgames/criblog"
+#define	_PATH_MORE	"/bin/cat"

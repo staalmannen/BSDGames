@@ -1029,9 +1029,7 @@ int	width = DWIDTH;	/* -w option: scrunch letters to 80 columns */
 int main(int, char *[]);
 
 int
-main(argc, argv)
-	int argc;
-	char *argv[];
+main(int argc, char *argv[])
 { 
 	int ch;
 
@@ -1166,4 +1164,5 @@ main(argc, argv)
 	}
 
 	exit(0);
+	return 0;
 }

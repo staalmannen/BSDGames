@@ -84,7 +84,7 @@ __RCSID("$NetBSD: bcd.c,v 1.13 2004/01/27 20:30:29 jsm Exp $");
 #include <ctype.h>
 #include <unistd.h>
 
-const u_short holes[256] = {
+const unsigned short holes[256] = {
     0x0,	 0x0,	  0x0,	   0x0,	    0x0,     0x0,     0x0,     0x0,
     0x0,	 0x0,	  0x0,	   0x0,	    0x0,     0x0,     0x0,     0x0,
     0x0,	 0x0,	  0x0,	   0x0,	    0x0,     0x0,     0x0,     0x0,
@@ -149,6 +149,7 @@ main(argc, argv)
 		while (fgets(cardline, sizeof(cardline), stdin))
 			printcard((unsigned char *)cardline);
 	exit(0);
+	return 0;
 }
 
 #define	COLUMNS	48

@@ -48,6 +48,8 @@ __RCSID("$NetBSD: ppt.c,v 1.16 2004/01/27 20:30:30 jsm Exp $");
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <libv.h>
+#define __progname _progname
 
 #define	EDGE	"___________"
 
@@ -128,6 +130,7 @@ main(argc, argv)
 		(void) puts(EDGE);
 	}
 	exit(0);
+	return 0;
 }
 
 static void

@@ -34,5 +34,5 @@
 
 #include <paths.h>
 
-#define	_PATH_GAMES	"/usr/share/games/bsdgames/atc/"
-#define	_PATH_SCORE	"/var/games/bsdgames/atc_score"
+#define	_PATH_GAMES	"/sys/games/lib/bsdgames/atc/"
+#define	_PATH_SCORE	"/sys/games/lib/bsdgames/atc_score"

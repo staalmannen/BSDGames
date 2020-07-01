@@ -125,6 +125,7 @@ main(argc, argv)
 			convert(*argv);
 		}
 	exit(0);
+	return 0;
 }
 
 void

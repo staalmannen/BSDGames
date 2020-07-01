@@ -112,7 +112,7 @@ main(argc, argv)
 	}
 
 	(void)gettimeofday(&tp, NULL);
-	srandom((u_int)(tp.tv_usec + tp.tv_sec + getpid()));
+	srandom((unsigned int)(tp.tv_usec + tp.tv_sec + getpid()));
 
 	/* Compute a random exit status between 0 and denom - 1. */
 	if (random_exit)
@@ -147,6 +147,7 @@ main(argc, argv)
 	if (ferror(stdin))
 		err(2, "stdin");
 	exit (0);
+	return 0;
 }
 
 void

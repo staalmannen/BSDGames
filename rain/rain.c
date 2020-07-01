@@ -59,6 +59,19 @@ __RCSID("$NetBSD: rain.c,v 1.17 2004/05/02 21:31:23 christos Exp $");
 #include <errno.h>
 #include <limits.h>
 
+#ifdef Plan9
+#include <time.h>
+int usleep(long usec) {
+    int second = usec/1000000;
+    long nano = usec*1000 - second*1000000;
+    struct timespec sleepy = {0};
+    sleepy.tv_sec = second;
+    sleepy.tv_nsec = nano;
+    nanosleep(&sleepy, (struct timespec *) NULL);
+    return 0;
+}
+#endif
+
 static volatile sig_atomic_t sig_caught = 0;
 
 int main(int, char **);

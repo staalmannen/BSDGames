@@ -29,14 +29,9 @@
 
 #include <stdlib.h>
 #include <libv.h>
-#define __progname _progname
-
-#ifndef HAVE_getprogname
-//extern char *__progname;
 
 const char *
 getprogname(void)
 {
-  return __progname;
+  return _progname;
 }
-#endif /* !defined(HAVE_getprogname) */

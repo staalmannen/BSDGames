@@ -30,7 +30,7 @@
 
 #include <features.h>
 #include <sys/types.h>
-#include <endian.h>
+//#include <endian.h>
 #include <netinet/in.h>
 
 #if __BYTE_ORDER == __BIG_ENDIAN

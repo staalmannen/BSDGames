@@ -114,9 +114,7 @@ whichway(here)
 }
 
 const char   *
-truedirec(way, option)
-	int     way;
-	char    option;
+truedirec(int way, char option)
 {
 	switch (way) {
 

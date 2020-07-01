@@ -5,7 +5,7 @@
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
+ * modification, are permitted provided that the following conditions draw
  * are met:
  * 1. Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
@@ -241,13 +241,13 @@ cypher()
 					if (testbit(wear, n)) {
 						things++;
 						wordvalue[wordnumber + 1] = n;
-						wordnumber = draw();
+						wordnumber = bdraw();
 					}
 				wordnumber += 2;
 				if (!things)
 					puts("Nothing to draw!");
 			} else
-				draw();
+				bdraw();
 			break;
 
 		case PUTON:

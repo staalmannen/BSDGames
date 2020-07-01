@@ -182,6 +182,7 @@ main(argc, argv)
 		errx(1, "start value must be less than stop value.");
 	primes(start, stop);
 	exit(0);
+	return 0;
 }
 
 /*

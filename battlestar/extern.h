@@ -5,7 +5,7 @@
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
+ * modification, are permitted provided that the following conditions draw
  * are met:
  * 1. Redistributions of source code must retain the above copyright
  *    notice, this list of conditions and the following disclaimer.
@@ -338,7 +338,7 @@ void die(void) __attribute__((__noreturn__));
 void diesig(int) __attribute__((__noreturn__));
 void dig(void);
 void dooropen(void);
-int draw(void);
+int bdraw(void);
 void drink(void);
 int drive(void);
 int drop(const char *);

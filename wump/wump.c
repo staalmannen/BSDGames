@@ -62,6 +62,7 @@ __RCSID("$NetBSD: wump.c,v 1.17 2005/02/15 12:56:20 jsm Exp $");
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include "pathnames.h"
 
 /* some defines to spec out what our wumpus cave should look like */
@@ -595,7 +596,7 @@ try_again:		link = (random() % room_num) + 1;
 	 * make it easier on the intrepid adventurer.
 	 */
 	for (i = 1; i <= room_num; ++i)
-		qsort(cave[i].tunnel, (u_int)link_num,
+		qsort(cave[i].tunnel, (unsigned int)link_num,
 		    sizeof(cave[i].tunnel[0]), int_compare);
 
 #ifdef DEBUG

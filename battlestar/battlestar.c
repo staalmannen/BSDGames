@@ -103,4 +103,5 @@ run:
 	default:
 		errx(1, "bad return from cypher(): please submit a bug report");
 	}
+	return 0;
 }

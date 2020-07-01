@@ -1,0 +1,41 @@
+</$objtype/mkfile
+
+TARG=battlestar
+
+OFILES= battlestar.$O command1.$O command2.$O command3.$O command4.$O\
+	command5.$O command6.$O command7.$O cypher.$O dayfile.$O\
+	dayobjs.$O fly.$O getcom.$O globals.$O init.$O misc.$O\
+	nightfile.$O nightobjs.$O parse.$O room.$O save.$O words.$O
+
+
+HFILES=	
+
+
+BIN=/$objtype/bin/games
+
+LIB=../libgames.a$O
+
+</sys/src/cmd/mkone
+
+CC=pcc
+LD=pcc
+CFLAGS=-c -I. -I.. -I../include \
+	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
+	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
+
+
+%.$O: %.c
+	$CC $CFLAGS $stem.c
+
+
+install:V:
+	cp $O.out $BIN/$TARG
+	cp $TARG.6man /sys/man/6/$TARG
+	
+
+clean:V:
+    rm -f *.[$OS] [$OS].out
+
+nuke:V:
+	rm -f $BIN/$TARG
+	rm -f /sys/man/6/$TARG

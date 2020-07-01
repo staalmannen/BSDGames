@@ -1,0 +1,38 @@
+</$objtype/mkfile
+
+TARG=pig
+
+OFILES= pig.$O
+
+
+HFILES=	
+
+
+BIN=/$objtype/bin/games
+
+LIB=../libgames.a$O
+
+</sys/src/cmd/mkone
+
+CC=pcc
+LD=pcc
+CFLAGS=-c -I. -I.. -I../include \
+	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
+	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
+
+
+%.$O: %.c
+	$CC $CFLAGS $stem.c
+
+
+install:V:
+	cp $O.out $BIN/$TARG
+	cp $TARG.6man /sys/man/6/$TARG
+	
+
+clean:V:
+    rm -f *.[$OS] [$OS].out
+
+nuke:V:
+	rm -f $BIN/$TARG
+	rm -f /sys/man/6/$TARG

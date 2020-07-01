@@ -2,8 +2,9 @@
 
 #only include those that successfully build
 
-DIRS=lib adventure arithmetic caesar fish\
-	wargames worm worms wtf
+DIRS=lib adventure arithmetic battlestar bcd\
+	caesar fish morse pig pom ppt rain random\
+	wargames worm worms wtf wump
 
 
 
@@ -18,6 +19,7 @@ install:V:
 clean:V:
 	for (i in $DIRS)
 		@{ cd $i; mk $target }
+	cd lib: mk nuke
 
 nuke:V:
 	for (i in $DIRS)

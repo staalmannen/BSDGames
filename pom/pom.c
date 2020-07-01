@@ -146,6 +146,7 @@ main(argc, argv)
 		}
 	}
 	exit(0);
+	return 0;
 }
 
 /*

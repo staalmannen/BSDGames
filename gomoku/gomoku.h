@@ -38,6 +38,9 @@
 #include <sys/endian.h>
 #include <stdio.h>
 
+#define u_char unsigned char
+#define u_short unsigned short
+
 /* board dimensions */
 #define BSZ	19
 #define BSZ1	(BSZ+1)

@@ -1,0 +1,42 @@
+</$objtype/mkfile
+
+TARG=atc
+
+OFILES= extern.$O input.$O list.$O log.$O main.$O\
+	tunable.$O update.$O grammar.$O lex.$O
+
+
+HFILES=	grammar.h
+
+
+BIN=/$objtype/bin/games
+
+LIB=../libgames.a$O
+
+</sys/src/cmd/mkone
+
+CC=pcc
+LD=pcc
+CFLAGS=-c -I. -I.. -I../include \
+	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
+	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE -DFILESDIR="/sys/games/lib/atc"
+
+
+%.$O: %.c
+	$CC $CFLAGS $stem.c
+
+
+install:V:
+	cp $O.out $BIN/$TARG
+	cp $TARG.6.in /sys/man/6/$TARG
+	mkdir -p /sys/games/lib/bsdgames/atc
+	cp games/* /sys/games/lib/bsdgames/atc/
+	
+
+clean:V:
+    rm -f *.[$OS] [$OS].out
+
+nuke:V:
+	rm -f $BIN/$TARG
+	rm -f /sys/man/6/$TARG
+	rm -rf /sys/games/lib/bsdgames/atc

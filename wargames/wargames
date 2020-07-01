@@ -39,9 +39,9 @@ read x
 
 x=`echo $x | sed 's/[^-a-z0-9]//g'`
 
-if [ -f /usr/games/$x ] ; then
+if [ -f /$objtype/bin/games/$x ] ; then
 	tput clear
-	exec /usr/games/$x
+	exec /$objtype/bin/games/$x
 else
 	exec cat <<QUOTE
 A strange game.

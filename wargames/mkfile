@@ -1,0 +1,13 @@
+</$objtype/mkfile
+
+install:V:
+	cp wargames /rc/bin/ape/
+	cp wargames.6man /sys/man/6/wargames
+
+clean:V:
+	echo "clean!"
+
+nuke:V:
+	rm -f /rc/bin/ape/wargames
+	rm -f /sys/man/6/wargames
+

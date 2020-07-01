@@ -310,10 +310,9 @@ penalise(value, op, operand)
 	int value, op, operand;
 {
 	struct penalty *p;
-
 	op = opnum(op);
-	if ((p = (struct penalty *)malloc((u_int)sizeof(*p))) == NULL)
-		return;
+//	if ((p = (struct penalty *) malloc * (u_int) sizeof(*p)))) == NULL)
+//		return;
 	p->next = penlist[op][operand];
 	penlist[op][operand] = p;
 	penalty[op][operand] += p->penalty = WRONGPENALTY;
@@ -368,6 +367,7 @@ getrandom(maxval, op, operand)
 	 */
 	errx(1, "arithmetic: bug: inconsistent penalties.");
 	/* NOTREACHED */
+	return value;
 }
 
 /* Return an index for the character op, which is one of [+-x/]. */

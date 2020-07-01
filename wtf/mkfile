@@ -1,0 +1,17 @@
+</$objtype/mkfile
+
+install:V:
+	mkdir -p /sys/games/lib/wtf
+	cp wtf.in /rc/bin/ape/wtf
+	cp acronyms /sys/games/lib/wtf/
+	cp acronyms.comp /sys/games/lib/wtf/
+	cp wtf.6.in /sys/man/6/wtf
+
+clean:V:
+	echo "clean!"
+
+nuke:V:
+	rm -f /rc/bin/ape/wtf
+	rm -rf /sys/games/lib/wtf
+	rm -f /sys/man/6/wtf
+

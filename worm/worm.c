@@ -81,7 +81,7 @@ int lastch;
 char outbuf[BUFSIZ];
 
 void	crash(void) __attribute__((__noreturn__));
-void	display(const struct body *, char);
+void	bdisplay(const struct body *, char);
 int	main(int, char **);
 void	leave(int) __attribute__((__noreturn__));
 void	life(void);
@@ -167,7 +167,7 @@ life()
 	head->x = start_len % (COLS-5) + 2;
 	head->y = LINES / 2;
 	head->next = NULL;
-	display(head, HEAD);
+	bdisplay(head, HEAD);
 	for (i = 0, bp = head; i < start_len; i++, bp = np) {
 		np = newlink();
 		if (np == NULL)
@@ -182,7 +182,7 @@ life()
 			np->x = bp->x - j;
 			np->y = bp->y;
 		}
-		display(np, BODY);
+		bdisplay(np, BODY);
 	}
 	tail = np;
 	tail->prev = NULL;
@@ -190,12 +190,9 @@ life()
 }
 
 void
-display(pos, chr)
-	const struct body *pos;
-	char chr;
-{
+bdisplay(struct body *pos, char chtr) {
 	wmove(tv, pos->y, pos->x);
-	waddch(tv, chr);
+	waddch(tv, chtr);
 }
 
 void
@@ -310,7 +307,7 @@ process(ch)
 	lastch = ch;
 	if (growing == 0)
 	{
-		display(tail, ' ');
+		bdisplay(tail, ' ');
 		tail->next->prev = NULL;
 		nh = tail->next;
 		free(tail);
@@ -318,7 +315,7 @@ process(ch)
 		visible_len--;
 	}
 	else growing--;
-	display(head, BODY);
+	bdisplay(head, BODY);
 	wmove(tv, y, x);
 	if (isdigit(ch = winch(tv)))
 	{
@@ -339,7 +336,7 @@ process(ch)
 	head->next = nh;
 	nh->y = y;
 	nh->x = x;
-	display(nh, HEAD);
+	bdisplay(nh, HEAD);
 	head = nh;
 	visible_len++;
 	if (!(slow && running))

@@ -1,8 +1,8 @@
 </$objtype/mkfile
 
-TARG=caesar
+TARG=arithmetic
 
-OFILES= caesar.$O
+OFILES= arithmetic.$O
 
 
 HFILES=	
@@ -28,7 +28,6 @@ CFLAGS=-c -I. -I.. -I../include \
 install:V:
 	cp $O.out $BIN/$TARG
 	cp $TARG.6man /sys/man/6/$TARG
-	cp rot13.in /rc/bin/ape/rot13
 	
 
 clean:V:
@@ -37,4 +36,3 @@ clean:V:
 nuke:V:
 	rm -f $BIN/$TARG
 	rm -f /sys/man/6/$TARG
-	rm -f /rc/bin/ape/rot13

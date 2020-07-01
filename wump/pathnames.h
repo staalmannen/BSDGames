@@ -32,5 +32,5 @@
  *	@(#)pathnames.h	8.1 (Berkeley) 5/31/93
  */
 
-#define	_PATH_PAGER	"/usr/bin/pager"
-#define	_PATH_WUMPINFO	"/usr/share/games/bsdgames/wump.info"
+#define	_PATH_PAGER	"/bin/cat"
+#define	_PATH_WUMPINFO	"/sys/games/lib/bsdgames/wump.info"

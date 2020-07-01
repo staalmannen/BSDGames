@@ -10,7 +10,7 @@ usage() {
 	exit 1
 }
 
-acronyms=${ACRONYMDB:-@wtf_acronymfile@}
+acronyms=${ACRONYMDB:-"/sys/games/lib/wtf/acronyms"}
 
 args=`getopt f:t: $*`
 if [ $? -ne 0 ]; then
@@ -23,7 +23,7 @@ while [ $# -gt 0 ]; do
 			acronyms=$2; shift
 			;;
 		-t)
-			acronyms=@wtf_acronymfile@.$2; shift
+			acronyms="/sys/games/lib/wtf/acronyms".$2; shift
 			;;
 		--)
 			shift; break

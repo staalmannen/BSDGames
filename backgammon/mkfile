@@ -1,11 +1,6 @@
 </$objtype/mkfile
-
-#only include those that successfully build
-
-DIRS=lib adventure arithmetic caesar fish\
-	wargames worm worms wtf
-
-
+DIRS=backgammon teachgammon
+	
 
 all:V:
 	for (i in $DIRS)

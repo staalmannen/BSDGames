@@ -111,7 +111,7 @@ int     keys, lamp, grate, cage, rod, rod2, steps,	/* mnemonics */
         axe, mirror, dragon, chasm, troll, troll2, bear, messag,
         vend, batter, nugget, coins, chest, eggs, tridnt, vase,
         emrald, pyram, pearl, rug, chain, spices, back, look, cave,
-        null, entrnc, dprssn, enter, stream, pour, say, lock, throw,
+        null, entrnc, dprssn, enter, stream, pour, say, Lock, throw,
         find, invent;
 
 int     chloc, chloc2, dseen[7], dloc[7],	/* dwarf stuff */
@@ -237,7 +237,7 @@ linkdata()
 
 	pour = vocab(DECR('p', 'o', 'u', 'r', '\0'), 2, 0);
 	say = vocab(DECR('s', 'a', 'y', '\0', '\0'), 2, 0);
-	lock = vocab(DECR('l', 'o', 'c', 'k', '\0'), 2, 0);
+	Lock = vocab(DECR('l', 'o', 'c', 'k', '\0'), 2, 0);
 	throw = vocab(DECR('t', 'h', 'r', 'o', 'w'), 2, 0);
 	find = vocab(DECR('f', 'i', 'n', 'd', '\0'), 2, 0);
 	invent = vocab(DECR('i', 'n', 'v', 'e', 'n'), 2, 0);

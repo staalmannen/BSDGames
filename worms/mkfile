@@ -1,8 +1,8 @@
 </$objtype/mkfile
 
-TARG=caesar
+TARG=worms
 
-OFILES= caesar.$O
+OFILES= worms.$O
 
 
 HFILES=	
@@ -10,7 +10,7 @@ HFILES=
 
 BIN=/$objtype/bin/games
 
-LIB=../libgames.a$O
+LIB=../libgames.a$O /$objtype/lib/ape/libcurses.a
 
 </sys/src/cmd/mkone
 
@@ -18,7 +18,7 @@ CC=pcc
 LD=pcc
 CFLAGS=-c -I. -I.. -I../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
+	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE -DPlan9
 
 
 %.$O: %.c
@@ -28,7 +28,6 @@ CFLAGS=-c -I. -I.. -I../include \
 install:V:
 	cp $O.out $BIN/$TARG
 	cp $TARG.6man /sys/man/6/$TARG
-	cp rot13.in /rc/bin/ape/rot13
 	
 
 clean:V:
@@ -37,4 +36,3 @@ clean:V:
 nuke:V:
 	rm -f $BIN/$TARG
 	rm -f /sys/man/6/$TARG
-	rm -f /rc/bin/ape/rot13

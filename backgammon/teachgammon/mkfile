@@ -1,22 +1,26 @@
 </$objtype/mkfile
 
-TARG=caesar
+TARG=teachgammon
 
-OFILES= caesar.$O
+OFILES=\
+#.\
+	data.$O teach.$O ttext1.$O ttext2.$O tutor.$O\
+#../common_source\
+	allow.$O board.$O check.$O fancy.$O init.$O\
+	odds.$O one.$O save.$O subs.$O table.$O
 
-
-HFILES=	
+HFILES=	tutor.h
 
 
 BIN=/$objtype/bin/games
 
-LIB=../libgames.a$O
+LIB=../../libgames.a$O
 
 </sys/src/cmd/mkone
 
 CC=pcc
 LD=pcc
-CFLAGS=-c -I. -I.. -I../include \
+CFLAGS=-c -I. -I../common_source -I../../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
 	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
 
@@ -24,11 +28,12 @@ CFLAGS=-c -I. -I.. -I../include \
 %.$O: %.c
 	$CC $CFLAGS $stem.c
 
+%.$O: ../common_source/%.c
+	$CC $CFLAGS ../common_source/$stem.c
+
 
 install:V:
 	cp $O.out $BIN/$TARG
-	cp $TARG.6man /sys/man/6/$TARG
-	cp rot13.in /rc/bin/ape/rot13
 	
 
 clean:V:
@@ -36,5 +41,3 @@ clean:V:
 
 nuke:V:
 	rm -f $BIN/$TARG
-	rm -f /sys/man/6/$TARG
-	rm -f /rc/bin/ape/rot13

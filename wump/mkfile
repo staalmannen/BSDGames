@@ -1,11 +1,11 @@
 </$objtype/mkfile
 
-TARG=caesar
+TARG=wump
 
-OFILES= caesar.$O
+OFILES= wump.$O
 
 
-HFILES=	
+HFILES=	pathnames.h
 
 
 BIN=/$objtype/bin/games
@@ -28,7 +28,8 @@ CFLAGS=-c -I. -I.. -I../include \
 install:V:
 	cp $O.out $BIN/$TARG
 	cp $TARG.6man /sys/man/6/$TARG
-	cp rot13.in /rc/bin/ape/rot13
+	mkdir -p /sys/games/lib/bsdgames
+	cp wump.info /sys/games/lib/bsdgames/
 	
 
 clean:V:
@@ -37,4 +38,4 @@ clean:V:
 nuke:V:
 	rm -f $BIN/$TARG
 	rm -f /sys/man/6/$TARG
-	rm -f /rc/bin/ape/rot13
+	rm -f /sys/games/lib/bsdgames/wump.info

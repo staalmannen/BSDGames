@@ -69,6 +69,19 @@ __RCSID("$NetBSD: worms.c,v 1.16 2004/09/12 04:51:32 christos Exp $");
 #include <stdlib.h>
 #include <unistd.h>
 
+#ifdef Plan9
+#include <time.h>
+int usleep(long usec) {
+    int second = usec/1000000;
+    long nano = usec*1000 - second*1000000;
+    struct timespec sleepy = {0};
+    sleepy.tv_sec = second;
+    sleepy.tv_nsec = nano;
+    nanosleep(&sleepy, (struct timespec *) NULL);
+    return 0;
+}
+#endif
+
 static const struct options {
 	int nopts;
 	int opts[3];

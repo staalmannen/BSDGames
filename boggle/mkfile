@@ -1,5 +1,8 @@
 </$objtype/mkfile
-DIRS=backgammon teachgammon
+
+
+DIRS=boggle mkdict mkindex
+
 
 
 all:V:

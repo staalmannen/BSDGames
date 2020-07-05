@@ -66,6 +66,9 @@ struct betinfo {
 
 int dbfd;
 
+#define setpwent() 0
+#define getpwent() 0
+
 int	main(int, char *[]);
 void	printuser(const struct passwd *, int);
 
@@ -99,7 +102,7 @@ main(argc, argv)
 		exit(0);
 	}
 	if (strcmp(argv[1], "-a") == 0) {
-		while ((pw = getpwent()) != 0)
+		while ((pw = (struct passwd *) getpwent()) != 0)
 			printuser(pw, 0);
 		exit(0);
 	}
@@ -110,6 +113,7 @@ main(argc, argv)
 	}
 	printuser(pw, 1);
 	exit(0);
+	return 0;
 }
 
 /*

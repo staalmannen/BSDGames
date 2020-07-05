@@ -41,7 +41,8 @@ int		dblgood(void);
 int		eval(void);
 int		freemen(int);
 void		movcmp(void);
-void		move(int);
+void		bg_move(int);
+#define move bg_move
 int		movegood(void);
 void		pickmove(void);
 int		trapped(int, int);

@@ -36,6 +36,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <sys/time.h> /* struct timeval*/
+
 struct utmpentry {
 	char name[65];
 	char line[65];

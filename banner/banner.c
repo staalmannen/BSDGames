@@ -1104,8 +1104,8 @@ main(int argc, char *argv[])
 	/* check message to make sure it's legal */
 	j = 0;
 	for (i = 0; i < nchars; i++)
-		if ((u_char) message[i] >= NCHARS ||
-		    asc_ptr[(u_char) message[i]] == 0) {
+		if ((unsigned char) message[i] >= NCHARS ||
+		    asc_ptr[(unsigned char) message[i]] == 0) {
 			warnx("The character '%c' is not in my character set",
 				message[i]);
 			j++;
@@ -1121,7 +1121,7 @@ main(int argc, char *argv[])
 		if (trace)
 			printf("Char #%d: %c\n", i, message[i]);
 		for (j = 0; j < DWIDTH; j++) line[j] = ' ';
-		pc = asc_ptr[(u_char) message[i]];
+		pc = asc_ptr[(unsigned char) message[i]];
 		term = 0;
 		max = 0;
 		linen = 0;

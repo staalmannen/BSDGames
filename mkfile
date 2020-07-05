@@ -1,10 +1,17 @@
 </$objtype/mkfile
 
 #only include those that successfully build
+# Please note: I have only tested building, not that they work as intended
 # will never work: dab (c++)
+# boggle builds but depends on Pth and does not seem to work
+# backgammon needs termcap.h - can it be hacked around?
+# atc : several undefined things at linking
+# 
 
-DIRS=lib adventure arithmetic battlestar bcd\
-	caesar countmail cribbage fish morse number\
+
+DIRS=lib adventure arithmetic battlestar banner bcd\
+	caesar canfield countmail cribbage dm\
+	factor fish morse number\
 	pig pom ppt primes rain random\
 	wargames worm worms wtf wump
 

@@ -57,7 +57,6 @@ __RCSID("$NetBSD: utmpentry.c,v 1.5 2004/10/22 15:50:47 christos Exp $");
 
 #include "utmpentry.h"
 
-
 #ifdef SUPPORT_UTMP
 static void getentry(struct utmpentry *, struct utmp *);
 static time_t utmptime = 0;

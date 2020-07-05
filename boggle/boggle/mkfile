@@ -1,0 +1,43 @@
+</$objtype/mkfile
+
+#dependencies: pdcurses and pth (pthread)
+
+TARG=boggle
+
+OFILES= bog.$O help.$O mach.$O prtable.$O timer.$O word.$O
+
+
+HFILES=	
+
+
+BIN=/$objtype/bin/games
+
+LIB=../../libgames.a$O
+
+</sys/src/cmd/mkone
+
+CC=pcc
+LD=pcc
+CFLAGS=-c -I. -I../../include \
+	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
+	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE -DSIGWINCH=SIGTTIN -DTCIFLUSH=TCSAFLUSH
+
+
+%.$O: %.c
+	$CC $CFLAGS $stem.c
+
+
+install:V:
+	cp $O.out $BIN/$TARG
+	cp $TARG.6man /sys/man/6/$TARG
+	mkdir -p /sys/games/lib/bsdgames/boggle
+	cp helpfile /sys/games/lib/bsdgames/boggle
+	
+
+clean:V:
+    rm -f *.[$OS] [$OS].out
+
+nuke:V:
+	rm -f $BIN/$TARG
+	rm -f /sys/man/6/$TARG
+	rm -rf /sys/games/lib/bsdgames/boggle

@@ -2,7 +2,7 @@
 
 TARG=atc
 
-OFILES= extern.$O input.$O list.$O log.$O main.$O\
+OFILES= extern.$O graphics.$O input.$O list.$O log.$O main.$O\
 	tunable.$O update.$O grammar.$O lex.$O
 
 
@@ -19,7 +19,8 @@ CC=pcc
 LD=pcc
 CFLAGS=-c -I. -I.. -I../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -DFILESDIR="/sys/games/lib/atc" -D_PATH_BSHELL="/bin/sh"
+	-D_REENTRANT_SOURCE -DFILESDIR="/sys/games/lib/atc" -D_PATH_BSHELL="/bin/sh"\
+	-DYY_NO_UNPUT
 
 
 %.$O: %.c

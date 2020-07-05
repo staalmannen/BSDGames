@@ -2,10 +2,10 @@
 
 TARG=factor
 
-OFILES= factor.$O
+OFILES= factor.$O pr_tbl.$O
 
 
-HFILES=	
+HFILES=	../primes/primes.h
 
 
 BIN=/$objtype/bin/games
@@ -16,13 +16,16 @@ LIB=../libgames.a$O
 
 CC=pcc
 LD=pcc
-CFLAGS=-c -I. -I.. -I../include \
+CFLAGS=-c -I. -I../primes -I../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
+	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE 
 
 
 %.$O: %.c
 	$CC $CFLAGS $stem.c
+
+%.$O: ../primes/%.c
+	$CC $CFLAGS ../primes/$stem.c
 
 
 install:V:

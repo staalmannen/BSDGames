@@ -67,6 +67,11 @@ __RCSID("$NetBSD: dm.c,v 1.21 2004/11/05 21:30:32 dsl Exp $");
 #include "utmpentry.h"
 #include "pathnames.h"
 
+
+#define unsetenv(...) 0
+#define setpriority(...) 0
+
+
 static time_t	now;			/* current time value */
 static int	priority = 0;		/* priority game runs at */
 static char	*game,			/* requested game */

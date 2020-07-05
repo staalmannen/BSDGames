@@ -274,6 +274,7 @@ main(argc, argv)
 	}
 	cleanup();
 	exit (0);
+	return 0;
 }
 
 /*

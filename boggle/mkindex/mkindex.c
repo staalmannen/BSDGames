@@ -33,13 +33,13 @@
  */
 
 #ifndef lint
-static const char copyright[] __attribute__((__unused__)) = "@(#) Copyright (c) 1993\n\
+static const char copyright[] = "@(#) Copyright (c) 1993\n\
 	The Regents of the University of California.  All rights reserved.\n";
 
 #if 0
 static char sccsid[] = "@(#)mkindex.c	8.1 (Berkeley) 6/11/93";
 #else
-static const char rcsid[] __attribute__((__unused__)) =
+static const char rcsid[] =
     "$NetBSD: mkindex.c,v 1.9 2003/08/07 09:37:06 agc Exp $";
 #endif
 #endif /* not lint */
@@ -87,6 +87,7 @@ main(void)
 		exit(1);
 	}
 	exit(0);
+	return 0;
 }
 
 /*

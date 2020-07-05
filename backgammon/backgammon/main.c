@@ -124,7 +124,7 @@ main(argc, argv)
 #ifdef V7
 	while (*++argv != 0)	/* process arguments */
 #else
-	while (*++argv != -1)	/* process arguments */
+	while (*++argv != (char *) -1)	/* process arguments */
 #endif
 		getarg(&argv);
 	args[acnt] = '\0';

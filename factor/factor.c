@@ -77,7 +77,7 @@ __RCSID("$NetBSD: factor.c,v 1.15 2004/02/08 11:47:36 jsm Exp $");
 #include <openssl/bn.h>
 #else
 typedef long	BIGNUM;
-typedef u_long	BN_ULONG;
+typedef unsigned long	BN_ULONG;
 int	BN_dec2bn(BIGNUM **a, const char *str);
 #define BN_new()		((BIGNUM *)calloc(sizeof(BIGNUM), 1))
 #define BN_is_zero(v)		(*(v) == 0)
@@ -87,6 +87,9 @@ int	BN_dec2bn(BIGNUM **a, const char *str);
 #define BN_is_one(v)		(*(v) == 1)
 #define BN_mod_word(a, b)	(*(a) % (b))
 #endif
+
+#define	isblank(c)	(_ctype[(unsigned char)(c)]&_ISblank)
+#define LINE_MAX 2048
 
 #include "primes.h"
 
@@ -184,6 +187,7 @@ main(int argc, char *argv[])
 			pr_fact(val);
 		}
 	exit(0);
+	return 0;
 }
 
 /*

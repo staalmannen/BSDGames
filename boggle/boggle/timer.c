@@ -51,6 +51,8 @@ __RCSID("$NetBSD: timer.c,v 1.9 2004/01/27 20:30:29 jsm Exp $");
 #include <stdio.h>
 #include <unistd.h>
 
+#include <pthread.h>
+
 #include "bog.h"
 #include "extern.h"
 

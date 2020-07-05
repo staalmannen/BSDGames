@@ -1,8 +1,8 @@
 </$objtype/mkfile
 
-TARG=worm
+TARG=mkindex
 
-OFILES= worm.$O
+OFILES= mkindex.$O
 
 
 HFILES=	
@@ -10,13 +10,13 @@ HFILES=
 
 BIN=/$objtype/bin/games
 
-LIB=../libgames.a$O
+LIB=../../libgames.a$O
 
 </sys/src/cmd/mkone
 
 CC=pcc
 LD=pcc
-CFLAGS=-c -I. -I.. -I../include \
+CFLAGS=-c -I. -I../boggle -I../../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
 	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE 
 
@@ -27,7 +27,6 @@ CFLAGS=-c -I. -I.. -I../include \
 
 install:V:
 	cp $O.out $BIN/$TARG
-	cp $TARG.6man /sys/man/6/$TARG
 	
 
 clean:V:
@@ -35,4 +34,3 @@ clean:V:
 
 nuke:V:
 	rm -f $BIN/$TARG
-	rm -f /sys/man/6/$TARG

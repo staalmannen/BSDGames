@@ -575,10 +575,7 @@ removecard(a, b)
  * procedure to print the cards on the board
  */
 void
-printrank(a, b, cp, inverse)
-	int a, b;
-	const struct cardtype *cp;
-	bool inverse;
+printrank(int a, int b, const struct cardtype *cp, bool inverse)
 {
 	move(b, a);
 	if (cp->rank != 10)

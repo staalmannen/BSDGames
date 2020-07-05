@@ -1,3 +1,4 @@
+#include <stdlib.h>
 
 #line	54	"/usr/glenda/src/BSDgames/atc/grammar.y"
 typedef union  {

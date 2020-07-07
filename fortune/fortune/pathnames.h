@@ -1,8 +1,7 @@
-/* Automatically generated from hack/pathnames.h.in.  Do not edit.  */
-/*	$NetBSD: pathnames.h,v 1.4 2003/08/07 09:37:19 agc Exp $	*/
+/*	$NetBSD: pathnames.h,v 1.4 2003/08/07 09:37:14 agc Exp $	*/
 
 /*-
- * Copyright (c) 1990, 1993
+ * Copyright (c) 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,7 +31,4 @@
  *	@(#)pathnames.h	8.1 (Berkeley) 5/31/93
  */
 
-#define	_PATH_MAIL	"/bin/mail"
-#define	_PATH_QUEST	"/sys/games/lib/bsdgames/questdir"
-#define	_PATH_HACK	"/sys/games/lib/bsdgames/hack"
-
+#define	FORTDIR		"/sys/games/lib/bsdgames/fortune"

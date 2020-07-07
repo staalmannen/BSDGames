@@ -279,6 +279,7 @@ main(ac, av)
 		dieperror("fwrite %s", Outfile);
 	(void) fclose(outf);
 	exit(0);
+	return 0;
 }
 
 /*

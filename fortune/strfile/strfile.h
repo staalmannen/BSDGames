@@ -39,6 +39,11 @@
 #define	STR_ENDSTRING(line,tbl) \
 	((line)[0] == (tbl).str_delim && (line)[1] == '\n')
 
+#ifndef u_int32_t
+#include <stdint.h>
+#define u_int32_t uint32_t
+#endif
+
 typedef struct {				/* information table */
 #define	VERSION		1
 	u_int32_t	str_version;		/* version number */

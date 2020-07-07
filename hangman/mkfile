@@ -1,11 +1,14 @@
 </$objtype/mkfile
 
-TARG=gomoku
+#depends that a dictionary as been installed in /lib/dict
 
-OFILES= bdinit.$O bdisp.$O main.$O makemove.$O pickmove.$O stoc.$O
+TARG=hangman
+
+OFILES= endgame.$O getguess.$O main.$O prdata.$O prword.$O\
+	extern.$O getword.$O playgame.$O prman.$O setup.$O
 
 
-HFILES=	gomoku.h
+HFILES=	hangman.h pathnames.h
 
 
 BIN=/$objtype/bin/games
@@ -18,7 +21,7 @@ CC=pcc
 LD=pcc
 CFLAGS=-c -I. -I.. -I../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE -DBYTE_ORDER=LTTLE_ENDIAN
+	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE 
 
 
 %.$O: %.c
@@ -27,7 +30,7 @@ CFLAGS=-c -I. -I.. -I../include \
 
 install:V:
 	cp $O.out $BIN/$TARG
-	cp $TARG.6man /sys/man/6/$TARG
+	cp $TARG.6.in /sys/man/6/$TARG
 	
 
 clean:V:

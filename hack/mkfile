@@ -2,10 +2,29 @@
 
 TARG=hack
 
-OFILES= .$O
+OFILES= alloc.$O hack.ioctl.$O hack.potion.$O hack.tty.$O\
+	hack.Decl.$O hack.lev.$O hack.pri.$O hack.u_init.$O\
+	hack.apply.$O hack.main.$O hack.read.$O hack.unix.$O\
+	hack.bones.$O hack.makemon.$O hack.rip.$O hack.vault.$O\
+	hack.$O	hack.mhitu.$O hack.rumors.$O hack.version.$O\
+	hack.cmd.$O hack.mklev.$O hack.save.$O hack.wield.$O\
+	hack.do.$O hack.mkmaze.$O hack.search.$O hack.wizard.$O\
+	hack.do_name.$O hack.mkobj.$O hack.shk.$O hack.worm.$O\
+	hack.do_wear.$O	hack.mkshop.$O hack.shknam.$O hack.worn.$O\
+	hack.dog.$O hack.mon.$O hack.steal.$O hack.zap.$O\
+	hack.eat.$O hack.monst.$O hack.termcap.$O makedefs.$O\
+	hack.end.$O hack.o_init.$O hack.timeout.$O rnd.$O\
+	hack.engrave.$O hack.objnam.$O hack.topl.$O\
+	hack.fight.$O hack.options.$O hack.track.$O\
+	hack.invent.$O hack.pager.$O hack.trap.$O
 
 
-HFILES=	
+HFILES=	config.h def.gen.h def.objects.h hack.h\
+	date.h def.gold.h def.permonst.h hack.mfndpos.h\
+	def.edog.h def.mkroom.h def.rm.h pathnames.h\
+	def.eshk.h def.monst.h def.trap.h\
+	def.flag.h def.obj.h def.wseg.h\
+	def.func_tab.h def.objclass.h extern.h
 
 
 BIN=/$objtype/bin/games
@@ -18,7 +37,7 @@ CC=pcc
 LD=pcc
 CFLAGS=-c -I. -I.. -I../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -D_EXPERIMENTAL_SOURCE 
+	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE 
 
 
 %.$O: %.c

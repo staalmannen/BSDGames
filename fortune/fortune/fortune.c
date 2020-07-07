@@ -64,6 +64,9 @@ __RCSID("$NetBSD: fortune.c,v 1.44 2004/11/05 21:30:32 dsl Exp $");
 # include	"strfile.h"
 # include	"pathnames.h"
 
+#define rindex strchr
+#define u_int64_t uint64_t
+
 # define	TRUE	1
 # define	FALSE	0
 # define	bool	short
@@ -130,11 +133,11 @@ int	 add_dir(FILEDESC *);
 int	 add_file(int,
 	    const char *, const char *, FILEDESC **, FILEDESC **, FILEDESC *);
 void	 all_forts(FILEDESC *, const char *);
-char	*copy(const char *, u_int);
+char	*copy(const char *str, unsigned int len);
 void	 rot13(char *line, int len);
 void	 display(FILEDESC *);
 void	 do_free(void *);
-void	*do_malloc(u_int);
+void	*do_malloc(unsigned int size);
 int	 form_file_list(char **, int);
 int	 fortlen(void);
 void	 get_fort(void);
@@ -210,7 +213,7 @@ char	 Re_error[1024];
 # endif
 #endif
 
-#if (defined(__linux__) && !defined(__GLIBC__)) || (defined(__GLIBC__) && !defined(_DIRENT_HAVE_D_NAMLEN)) || defined(__CYGWIN__)
+#if (defined(__linux__) && !defined(__GLIBC__)) || (defined(__GLIBC__) && !defined(_DIRENT_HAVE_D_NAMLEN)) || defined(__CYGWIN__) || defined(Plan9)
 #define		NAMLEN(d)	(strlen((d)->d_name))
 #else
 #define		NAMLEN(d)	((d)->d_namlen)
@@ -887,8 +890,7 @@ copy(str, len)
  *	Do a malloc, checking for NULL return.
  */
 void *
-do_malloc(size)
-	unsigned int	size;
+do_malloc(unsigned int size)
 {
 	void	*new;
 

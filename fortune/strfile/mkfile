@@ -1,24 +1,26 @@
 </$objtype/mkfile
 
-TARG=gomoku
+#dependency : use pcre for regcomp
 
-OFILES= bdinit.$O bdisp.$O main.$O makemove.$O pickmove.$O stoc.$O
+TARG=strfile
+
+OFILES= strfile.$O
 
 
-HFILES=	gomoku.h
+HFILES=	
 
 
 BIN=/$objtype/bin/games
 
-LIB=../libgames.a$O
+LIB=../../libgames.a$O
 
 </sys/src/cmd/mkone
 
 CC=pcc
 LD=pcc
-CFLAGS=-c -I. -I.. -I../include \
+CFLAGS=-c -I. -I../../include \
 	-D_POSIX_SOURCE -D_SUSV2_SOURCE -D_C99_SNPRINTF_EXTENSION -D_BSD_EXTENSION \
-	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE -DBYTE_ORDER=LTTLE_ENDIAN
+	-D_REENTRANT_SOURCE -D_RESEARCH_SOURCE -DHAVE_REGCOMP -DPlan9
 
 
 %.$O: %.c
@@ -27,7 +29,7 @@ CFLAGS=-c -I. -I.. -I../include \
 
 install:V:
 	cp $O.out $BIN/$TARG
-	cp $TARG.6man /sys/man/6/$TARG
+	cp $TARG.8man /sys/man/8/$TARG
 	
 
 clean:V:
@@ -35,4 +37,4 @@ clean:V:
 
 nuke:V:
 	rm -f $BIN/$TARG
-	rm -f /sys/man/6/$TARG
+	rm -f /sys/man/8/$TARG

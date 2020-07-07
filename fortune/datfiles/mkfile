@@ -1,0 +1,23 @@
+</$objtype/mkfile
+
+
+FORTUNES=fortunes fortunes2 startrek zippy limerick netbsd farber
+REAL=fortunes-o fortunes2-o limerick-o netbsd-o unamerican-o
+
+FORTUNEDIR=/sys/games/lib/bsdgames/fortune
+
+
+install:V:
+	mkdir -p $FORTUNEDIR
+	for (i in $FORTUNES)
+		@{ ../strfile/$O.out -rs $i $FORTUNEDIR/$i.dat }
+	for (j in $REAL)
+		@{ tr 'a-zA-Z' 'n-za-mN-ZA-M' < $j.real > $j
+		../strfile/$O.out -rsx $j $FORTUNEDIR/$j.dat }
+
+clean:V:
+	echo "cleaned!"
+
+nuke:V:
+	rm -rf $FORTUNEDIR
+

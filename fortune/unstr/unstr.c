@@ -69,6 +69,8 @@ __RCSID("$NetBSD: unstr.c,v 1.11 2004/02/08 22:23:50 jsm Exp $");
 # include	<string.h>
 # include	"strfile.h"
 
+#define u_int64_t uint64_t
+
 # ifndef MAXPATHLEN
 # define	MAXPATHLEN	1024
 # endif	/* MAXPATHLEN */
@@ -77,7 +79,7 @@ char	*Infile,			/* name of input file */
 	Datafile[MAXPATHLEN],		/* name of data file */
 	Delimch;			/* delimiter character */
 
-FILE	*Inf, *Dataf;
+FILE	*Infil, *Dataf;
 
 void	getargs(char *[]);
 int	main(int, char *[]);
@@ -92,7 +94,7 @@ main(ac, av)
 	static STRFILE	tbl;		/* description table */
 
 	getargs(av);
-	if ((Inf = fopen(Infile, "r")) == NULL)
+	if ((Infil = fopen(Infile, "r")) == NULL)
 		err(1, "fopen %s", Infile);
 	if ((Dataf = fopen(Datafile, "r")) == NULL)
 		err(1, "fopen %s", Datafile);
@@ -108,9 +110,10 @@ main(ac, av)
 	}
 	Delimch = tbl.str_delim;
 	order_unstr(&tbl);
-	(void) fclose(Inf);
+	(void) fclose(Infil);
 	(void) fclose(Dataf);
 	exit(0);
+	return 0;
 }
 
 void
@@ -137,11 +140,11 @@ order_unstr(tbl)
 
 	for (i = 0; i < tbl->str_numstr; i++) {
 		(void) fread((char *) &pos, 1, sizeof pos, Dataf);
-		(void) fseek(Inf, be64toh(pos), SEEK_SET);
+		(void) fseek(Infil, be64toh(pos), SEEK_SET);
 		if (i != 0)
 			(void) printf("%c\n", Delimch);
 		for (;;) {
-			sp = fgets(buf, sizeof buf, Inf);
+			sp = fgets(buf, sizeof buf, Infil);
 			if (sp == NULL || STR_ENDSTRING(sp, *tbl))
 				break;
 			else
